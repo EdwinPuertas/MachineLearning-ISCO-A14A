@@ -1,0 +1,7 @@
+p_id,no_times_pregnant,glucose_concentration,blood_pressure,skin_fold_thickness,serum_insulin,bmi,diabetes pedigree,age
+316,2,112,68,22,94,34.1,0.315,26
+25,11,143,94,33,146,36.6,0.254,51
+710,2,93,64,32,160,38,0.674,23
+658,1,120,80,48,200,38.9,1.162,41
+542,3,128,72,25,190,32.4,0.549,27
+
