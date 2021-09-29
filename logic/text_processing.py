@@ -50,7 +50,7 @@ class TextProcessing(object):
             text = re.sub(r'\©|\×|\⇔|\_|\»|\«|\~|\#|\$|\€|\Â|\�|\¬', '', text)
             text = re.sub(r'\,|\;|\:|\!|\¡|\’|\‘|\”|\“|\"|\'|\`', '', text)
             text = re.sub(r'\}|\{|\[|\]|\(|\)|\<|\>|\?|\¿|\°|\|', '', text)
-            text = re.sub(r'\/|\-|\+|\*|\=|\^|\%|\&|\$', '', text)
+            text = re.sub(r'\/|\-|\+|\*|\=|\^|\%|\&|\$|\.', '', text)
             text = re.sub(r'\b\d+(?:\.\d+)?\s+', '', text)
             result = text.lower()
         except Exception as e:
@@ -71,6 +71,7 @@ class TextProcessing(object):
             text_out = re.sub("@([A-Za-z0-9_]{1,40})", '[MENTION]', text_out)
             text_out = re.sub("#([A-Za-z0-9_]{1,40})", '[HASTAG]', text_out)
             text_out = TextProcessing.remove_patterns(text_out)
+            text_out = re.sub("([0-9]{1,10})", '', text_out)
             # text_out = TextAnalysis.lemmatization(text_out) if lemmatizer else text_out
             text_out = TextProcessing.stopwords(text_out) if stopwords else text_out
             text_out = re.sub(r'\s+', ' ', text_out).strip()
