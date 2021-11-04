@@ -24,7 +24,6 @@ class TextProcessing(object):
             list_tagger = []
             tp_nlp = TextProcessing.load_spacy(TextProcessing.lang)
             doc = tp_nlp(text.lower())
-            print('original_text: {0}'.format(text))
             for token in doc:
                 item = {'text': token.text, 'lemma': token.lemma_, 'pos': token.pos_, 'tag': token.tag_,
                         'dep': token.dep_, 'shape': token.shape_, 'is_alpha': token.is_alpha,
@@ -45,7 +44,7 @@ class TextProcessing(object):
             component = spacy.load(spacy_model[lang])
             SpacySyllables(component)
             component.add_pipe('syllables', last=True)
-            print('- Text Processing: {0}'.format(component.pipe_names))
+            # print('- Text Processing: {0}'.format(component.pipe_names))
             return component
         except Exception as e:
             print('Error load spacy: {0}'.format(e))
